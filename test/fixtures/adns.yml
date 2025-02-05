@@ -1,6 +1,6 @@
 ---
-one:
+human:
   sequence: acgtacgtacgtacgtacgtacgtacgtacgtacgt
 
-two:
-  sequence: tgcatgcatgcatgcatgcatgcatgcatgcatgca
+mutant:
+  sequence: AtgcGacAgtGcttAtGtagaAGgCCCCtatcactg

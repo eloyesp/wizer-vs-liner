@@ -25,4 +25,11 @@ class AdnTest < ActiveSupport::TestCase
     adn = Adn.new sequence: sequence_with_mutations
     assert_equal adn.sequence, sequence_with_mutations
   end
+
+  test "mutants can be identified" do
+    adn = Adn.new sequence: adns(:human).sequence
+    assert_not adn.mutant?
+    adn.sequence = adns(:mutant).sequence
+    assert adn.mutant?
+  end
 end

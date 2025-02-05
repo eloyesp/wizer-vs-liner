@@ -2,7 +2,7 @@ require "test_helper"
 
 class AdnsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @adn = adns(:one)
+    @adn = adns(:human)
   end
 
   test "should get index" do

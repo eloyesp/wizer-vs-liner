@@ -6,6 +6,11 @@ class Adn < ApplicationRecord
     super(highlight_mutations(cleaned_string))
   end
 
+  # An ADN sequence is mutant when there are more than two mutant substrings
+  def mutant?
+    sequence.gsub(/[[:lower:]]/, "").size > 6
+  end
+
   private
 
   # Mutations are highlighted using uppercase characters
