@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Adns" %>
+
+<h1>Adns</h1>
+
+<div id="adns">
+  <% @adns.each do |adn| %>
+    <%= render adn %>
+    <p>
+      <%= link_to "Show this adn", adn %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New adn", new_adn_path %>

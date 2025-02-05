@@ -1,0 +1,2 @@
+class Adn < ApplicationRecord
+end

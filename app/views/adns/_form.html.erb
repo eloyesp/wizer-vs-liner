@@ -1,0 +1,22 @@
+<%= form_with(model: adn) do |form| %>
+  <% if adn.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(adn.errors.count, "error") %> prohibited this adn from being saved:</h2>
+
+      <ul>
+        <% adn.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :sequence, style: "display: block" %>
+    <%= form.text_field :sequence %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
