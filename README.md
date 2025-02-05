@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application helps manage ADN sequences and detect with them mutant
+substrings. A human sample is a mutant when there are more than one mutant
+pattern found.
 
-Things you may want to cover:
+The repo follows as much of the Rails conventions as possible, so should be
+pretty straightforward to run.
 
-* Ruby version
+## TODO
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Add React as requested
+- Configure deployment
