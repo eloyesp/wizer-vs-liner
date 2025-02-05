@@ -2,6 +2,9 @@
   <p>
     <strong>Sequence:</strong>
     <%= adn.sequence %>
+    <% if adn.mutant? %>
+    <strong>MUTANT</strong>
+    <% end %>
   </p>
 
 </div>
