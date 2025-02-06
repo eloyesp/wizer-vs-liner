@@ -22,7 +22,14 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
 
-  <body class="text-green-950 p-4 bg-green-100 dark:bg-green-900 dark:text-green-50">
-    <%= yield %>
+  <body class="text-emerald-900 bg-emerald-200 dark:bg-emerald-900 dark:text-emerald-50">
+
+    <header class="bg-emerald-50 px-4 py-6">
+      <h1 class="font-serif text-3xl">Mutant Finder</h1>
+      <p>Recruit the most mutants to kill those Liners</p>
+    </header>
+    <main class="p-4">
+      <%= yield %>
+    </main>
   </body>
 </html>
