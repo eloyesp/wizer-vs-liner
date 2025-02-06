@@ -9,7 +9,20 @@ export default function NewPage() {
 
   function handleChange (event) {
     const newSequence = event.target.value.replace(/[^acgt]/ig, "").toLowerCase().substring(0, 36)
-    setSequence(newSequence)
+    const csrfToken = document.head.querySelector('meta[name="csrf-token"]')?.content
+    fetch("/adns/new/explore.json", {
+      method: 'POST',
+      body: JSON.stringify({
+        adn: { sequence: newSequence }
+      }),
+      headers: {
+        "X-CSRF-Token": csrfToken,
+        "Content-Type": "application/json",
+      }
+    }).then((response) => response.json())
+      .then((json) => {
+        setSequence(json.sequence)
+      })
   }
 
   return (
@@ -30,7 +43,7 @@ export default function NewPage() {
       />
       <DNA
         { record }
-        className="peer-focus:outline min-h-20 bg-emerald-100"
+        className="peer-focus:outline min-h-20 bg-emerald-50"
         onClick={ () => inputRef.current.focus() }
       />
       <button
