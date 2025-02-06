@@ -2,6 +2,11 @@
   "name": "app",
   "private": true,
   "scripts": {
-    "build": "bun bun.config.js"
+    "build": "bun build app/javascript/application.js --outdir app/assets/builds --sourcemap=external",
+    "dev": "bun build app/javascript/application.js --outdir app/assets/builds --sourcemap=external --watch"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   }
 }
