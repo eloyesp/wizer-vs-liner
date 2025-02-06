@@ -6,24 +6,24 @@ export default function NewPage() {
   const [sequence, setSequence] = useState("")
   const record = { sequence }
 
-  function handleKeyDown (event) {
-    if (event.key.match(/[^acgt]/) && event.code.match(/Key/) && !event.ctrlKey) {
-      event.preventDefault()
-    } else if (event.key == " "){
-      event.preventDefault()
-    }
+  function handleChange (event) {
+    const newSequence = event.target.value.replace(/[^acgt]/ig, "").toLowerCase()
+    setSequence(newSequence)
   }
 
   return (
     <>
       <h1 className="text-3xl font-medium my-4">Add a New Sequence</h1>
       <label htmlFor="sequence">Sequence</label>
+      <p className="text-emerald-600">
+        Use only the leters 'a', 'c', 'g', 't'
+      </p>
       <input
+        autoFocus
         type="text"
         id="sequence"
         value={sequence}
-        onKeyDown={ handleKeyDown }
-        onChange={(e) => setSequence(e.target.value)}
+        onChange={ handleChange }
         className="bg-white"
       />
       <DNA { record } />
