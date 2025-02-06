@@ -15,6 +15,7 @@ class Adn < ApplicationRecord
 
   # Mutations are highlighted using uppercase characters
   def highlight_mutations(string)
+    string = "%-36.36s" % string
     return "" unless string.length == 36
     array_string = string.unpack("A" * 36).each_with_index.to_a
 
@@ -46,6 +47,6 @@ class Adn < ApplicationRecord
       end
     end
 
-    string
+    string.strip
   end
 end

@@ -10,6 +10,15 @@ class AdnsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "can explore new sequences without storing" do
+    assert_difference("Adn.count", 0) do
+      post explore_new_adn_url, as: :json,
+        params: { adn: { sequence: "ggaaaat" } }
+    end
+    assert_response :success
+    assert_equal response.parsed_body[:sequence], "ggAAAAt"
+  end
+
   test "should get new" do
     get new_adn_url
     assert_response :success
