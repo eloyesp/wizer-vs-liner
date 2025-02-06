@@ -6,6 +6,11 @@ class AdnsController < ApplicationController
     @adns = Adn.all
   end
 
+  def explore
+    @adn = Adn.new adn_params
+    render json: { sequence: @adn.sequence }
+  end
+
   # GET /adns/1 or /adns/1.json
   def show
   end
