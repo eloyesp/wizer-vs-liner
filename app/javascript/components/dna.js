@@ -11,11 +11,13 @@ function Nucleotide({ nucleotide }) {
   )
 }
 
-export default function DNA({ record }) {
-  const nucleotides = record.sequence.split("")
+export default function DNA({ record, ...props }) {
+  const sequence = (record.sequence || "").padEnd(36)
+  const nucleotides = sequence.split("")
+  props.className = `w-max my-4 p-2 grid grid-cols-6 items-center gap-1 border-purple-900 p-1 font-mono uppercase ${props.className}`
 
   return (
-    <ol className="m-2 grid grid-cols-6 items-center gap-1 border-purple-900 p-1 font-mono uppercase">
+    <ol {...props}>
       {nucleotides.map((nucleotide, index) => (
         <Nucleotide key={index} nucleotide={nucleotide} />
       ))}

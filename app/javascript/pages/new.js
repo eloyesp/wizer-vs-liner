@@ -1,13 +1,14 @@
 import DNA from "../components/dna"
 import { Link } from "react-router"
-import { useState } from "react"
+import { useState, useRef } from "react"
 
 export default function NewPage() {
   const [sequence, setSequence] = useState("")
+  const inputRef = useRef(null)
   const record = { sequence }
 
   function handleChange (event) {
-    const newSequence = event.target.value.replace(/[^acgt]/ig, "").toLowerCase()
+    const newSequence = event.target.value.replace(/[^acgt]/ig, "").toLowerCase().substring(0, 36)
     setSequence(newSequence)
   }
 
@@ -24,9 +25,14 @@ export default function NewPage() {
         id="sequence"
         value={sequence}
         onChange={ handleChange }
-        className="bg-white"
+        className="sr-only peer"
+        ref={ inputRef }
       />
-      <DNA { record } />
+      <DNA
+        { record }
+        className="peer-focus:outline min-h-20 bg-emerald-100"
+        onClick={ () => inputRef.current.focus() }
+      />
       <button
         className="my-4 block w-max rounded bg-purple-700 px-4 py-2 font-medium text-white shadow-md hover:bg-purple-800 md:m-6 md:py-4"
       >Submit</button>
