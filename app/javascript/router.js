@@ -1,13 +1,5 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router"
-
-function HomePage() {
-  return (
-    <>
-      <h1 className="text-3xl font-medium">Hello from React!</h1>
-      <Link to="/new">Add a new sequence</Link>
-    </>
-  )
-}
+import HomePage from "./pages/home"
 
 function SequenceNew() {
   return (
