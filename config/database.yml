@@ -15,17 +15,15 @@ test:
   <<: *default
   database: storage/test.sqlite3
 
-# PostgreSQL. Versions 9.3 and up are supported.
+# PostgreSQL on production. Versions 9.3 and up are supported.
 production:
   primary: &primary_production
     adapter: postgresql
     encoding: unicode
+    url: <%= ENV['DATABASE_URL'] %>
     # For details on connection pooling, see Rails configuration guide
     # https://guides.rubyonrails.org/configuring.html#database-pooling
     pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-    database: wizer_vs_liner_production
-    username: wizer_vs_liner
-    password: <%= ENV["WIZER_VS_LINER_DATABASE_PASSWORD"] %>
   cache:
     <<: *primary_production
     database: wizer_vs_liner_production_cache
