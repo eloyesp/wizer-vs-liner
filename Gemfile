@@ -56,4 +56,3 @@ group :production do
   # Use PostreSQL on production
   gem "pg", "~> 1.5"
 end
-
