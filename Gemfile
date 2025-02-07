@@ -34,6 +34,9 @@ gem "thruster", require: false
 gem "tailwindcss-rails", "~> 4.0"
 
 group :development, :test do
+  # Use sqlite on development
+  gem "sqlite3", ">= 2.1"
+
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
 
@@ -49,10 +52,8 @@ group :development do
   gem "web-console"
 end
 
-group :development, :test do
-  gem "sqlite3", ">= 2.1"
-end
-
 group :production do
+  # Use PostreSQL on production
   gem "pg", "~> 1.5"
 end
+
