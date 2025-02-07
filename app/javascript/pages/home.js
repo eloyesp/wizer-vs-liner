@@ -15,9 +15,25 @@ export default function () {
       })
   }, [])
 
+  function Badge({ mutant }) {
+    if (mutant) {
+      return (
+        <div className="m-4 rounded bg-emerald-800 px-4 py-2 font-medium text-white md:m-6 md:py-4">
+          Mutant
+        </div>
+      )
+    } else {
+      return (
+        <div className="m-4 rounded bg-emerald-600 px-4 py-2 text-white md:m-6 md:py-4">
+          Human
+        </div>
+      )
+    }
+  }
   const renderedSequences = sequences.map((seq) => (
     <div key={seq.id} className="flex items-center">
       <Dna record={seq} />
+      <Badge mutant={seq.mutant} />
       <Link
         to={`/edit/${seq.id}`}
         className="m-4 ml-auto rounded bg-purple-500 px-4 py-2 font-medium text-white shadow-md hover:bg-purple-700 md:m-6 md:py-4"

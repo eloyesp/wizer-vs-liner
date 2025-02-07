@@ -9,7 +9,6 @@ pretty straightforward to run.
 
 ## TODO
 
-- Make clear which sequence is mutant on the view.
 - Implement "mutate" (edit) page.
 - Add images.
 - Implement dark mode.
